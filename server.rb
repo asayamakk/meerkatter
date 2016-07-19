@@ -1,9 +1,13 @@
+require 'active_support'
+require 'active_support/core_ext/object/blank'
 require 'sinatra'
 
 get '/' do
   text = ''
-  IO.foreach('./.log') do |line|
-    text << line + '<br>'
+  if File.exist?('./.log')
+    IO.foreach('./.log') do |line|
+      text << line + '<br>'
+    end
   end
-  text
+  text.presence || "no logs yet"
 end
