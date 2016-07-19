@@ -2,6 +2,9 @@ require 'active_support'
 require 'active_support/core_ext/object/blank'
 require 'sinatra'
 
+configure :production do
+end
+
 get '/' do
   text = ''
   if File.exist?('./.log')
@@ -10,4 +13,8 @@ get '/' do
     end
   end
   text.presence || "no logs yet"
+end
+
+error do
+  'something went wrong... ' + env['sinatra.error'].name
 end
