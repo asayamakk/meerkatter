@@ -44,6 +44,8 @@ client.on :message do |data|
       search_word = message
     elsif message.include?('橋本環奈')
       search_word = message
+    elsif ["浴衣", "制服"].any?{|wear| message.include?(wear) }
+      search_word = message
     end
     image_list = GoogleImageFetcher::CLI.new.search(search_word)
     image_url = image_list.sample
