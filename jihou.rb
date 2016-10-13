@@ -10,6 +10,7 @@ exit 0 if Date.today.wday == 0 || Date.today.wday == 6
 
 TOKEN = ENV['SLACK_API_TOKEN']
 ROOM_ID = 'C0MMEQ0DN'
+# ROOM_ID = 'C0YLPCJR5'
 deadline = Date.new(2016, 12, 20)
 current  = Date.today
 rest     = (deadline - current).to_i.to_s
