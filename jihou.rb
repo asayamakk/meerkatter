@@ -11,10 +11,10 @@ exit 0 if Date.today.wday == 0 || Date.today.wday == 6
 TOKEN = ENV['SLACK_API_TOKEN']
 ROOM_ID = 'C0MMEQ0DN'
 # ROOM_ID = 'C0YLPCJR5'
-deadline = Date.new(2016, 12, 20)
+deadline = Date.new(2016, 11, 30)
 current  = Date.today
 rest     = (deadline - current).to_i.to_s
-message  = "卒論の提出まであと#{rest}日です。。\n進捗どうですか？"
+message  = "卒論の提出締切まであと#{rest}日です。。\n進捗どうですか？"
 search_word = '進捗'
 
 image_list = GoogleImageFetcher::CLI.new.search(search_word)
